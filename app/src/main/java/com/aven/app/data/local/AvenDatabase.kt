@@ -39,13 +39,11 @@ abstract class AvenDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AvenDatabase {
             return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+                INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     AvenDatabase::class.java,
                     "aven_database"
-                ).fallbackToDestructiveMigration(dropAllTables = true).build()
-                INSTANCE = instance
-                instance
+                ).build().also { INSTANCE = it }
             }
         }
     }
