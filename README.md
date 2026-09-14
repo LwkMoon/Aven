@@ -1,137 +1,137 @@
 # Aven — Behavioral Awareness & Living World
 
-Aven is a calm-technology Android application built with modern **Jetpack Compose**, **Kotlin Coroutines**, **Room Database**, and **Material Design 3**. 
+Aven is a local-first Android app built with **Kotlin**, **Jetpack Compose**, **Room**, **DataStore**, and **Material 3**.
 
-Instead of punitive blockers or guilt-inducing timers, Aven introduces a gentle, breathing pause between impulse and action, helping you understand your intent while nurturing a living, evolving ecosystem on your device.
+Instead of blocking apps or using guilt-based timers, Aven adds a short pause before opening apps you choose to monitor. You can reflect on what you intended to do, continue, or step away. Your choices also affect Aven's small living-world visualization.
 
----
-
-## Key Features
-
-- **Conscious Pause Interventions**: Introduces a customizable 3–15 second breathing window when opening monitored impulse-prone applications, with intent reflection tags (*"Reply to someone"*, *"Look up specific info"*, *"Pass time"*).
-- **Procedural Harmonic Audio**: Asset-free, synthesized harmonic chimes using Android's `AudioTrack`—soothing breath cues, completion chimes, and growth harmonies that provide auditory grounding without heavy audio files.
-- **Living World Dynamic Ecosystem**: A custom procedural Compose Canvas that visualizes your behavioral balance as a living sanctuary (*Seed* → *Sprout* → *Grove* → *Habitat* → *Living World*). Features serene wind sway animations, day/night diurnal lighting shifts, and unlocked flora lore.
-- **Behavioral Insights & Trend Tracking**: Weekly awareness score, conscious intentionality rate, impulse avoidance count, and app breakdown charts.
-- **Real-Time Launch Interception (`AvenAccessibilityService`)**: An optional on-device Accessibility Service that detects when monitored apps open and presents the pause window before habitual scrolling takes over.
-- **Installed Apps Discovery (`InstalledAppsProvider`)**: Query and monitor any launchable application installed on your Android device with real app icons and search filtering.
-- **Quiet Milestone Notifications (`AvenNotificationService`)**: Gentle, non-guilt status bar notifications celebrating world growth milestones.
-- **Home Screen Living World Widget (`AvenGardenWidgetProvider`)**: An interactive Android AppWidget displaying your current sanctuary stage, growth progress bar, and weekly awareness rate.
-- **100% Local & Private**: All data is stored locally in an encrypted Room SQLite database on your device. Zero cloud sync, zero external analytics, and zero tracking.
+> **Status:** v0.1.0 prototype. Expect rough edges and device-specific behavior.
 
 ---
 
+## What it does
+
+- **Conscious pauses** — configurable 3–15 second pauses for monitored apps.
+- **Intent reflection** — choose a reason such as replying to someone, looking something up, or passing time.
+- **Procedural audio** — short synthesized cues generated locally with `AudioTrack`.
+- **Living world** — a procedural Compose Canvas that changes as your awareness metrics change.
+- **Insights** — weekly awareness and intentionality metrics with app breakdowns.
+- **App discovery** — browse launchable apps installed on the device and choose which ones to monitor.
+- **Accessibility interception** — optionally detects launches of monitored apps without reading their screen contents.
+- **Milestone notifications** — optional local notifications for progress.
+- **Home-screen widget** — shows the current living-world stage and progress.
+- **Local-first storage** — behavioral data stays on the device; Aven does not currently use cloud sync or external analytics.
+
+## Privacy
+
+Aven's v0.1 prototype is designed to work locally. The Accessibility Service is used to detect app-window changes for monitored applications; it is configured not to retrieve window content.
+
+The local Room database is **not currently encrypted at the database layer**. Do not describe v0.1 as using an encrypted database.
+
+Aven does not require a Gemini/API key for the current prototype.
 
 ---
 
-## Installation & First-Time Setup (v0.1 Prototype)
+## Installation
 
-As a public open-source prototype app, Aven runs entirely on your device with 100% privacy. To use Aven to its full potential and allow automatic app interception, follow these steps:
+### APK
 
-### 1. Download & Install the APK
-1. Download the latest `Aven-v0.1-prototype.apk` file from this repository's Releases section.
-2. Open the file on your Android device. If prompted, allow installations from your browser or file manager ("Unknown sources").
-3. Tap **Install** to complete setup.
+Download the `Aven-v0.1-prototype.apk` asset from the [v0.1 release](https://github.com/LwkMoon/Aven/releases/tag/v0.1).
 
-### 2. Critical System Configurations (Required)
-When you open Aven for the first time, you will see a **System Configuration Required** banner on the home screen. Tap the shortcuts to enable:
-- **Accessibility Service**: This allows Aven to detect when monitored habit apps (like Instagram) are launched so it can introduce a conscious pause before the feed loads. *No screen text or user data is ever read or collected.*
-- **Display Over Apps (Overlay)**: This gives Aven permission to draw the beautiful breathing pause interface over your screen when a monitored application starts.
+Android may require you to allow your browser or file manager to install apps from that source.
+
+### First-time setup
+
+For automatic interception, Aven needs:
+
+1. **Accessibility Service** — lets Aven observe which app window is opened. Aven does not retrieve the window's text/content.
+2. **Display over other apps** — lets Aven show its pause interface when a monitored app is opened.
+
+Both permissions are optional for exploring the rest of the prototype.
 
 ---
 
-## Developer Guide & Building From Source
+## Build from source
 
-### Prerequisites
-- **Android Studio** (Koala, Ladybug, or later)
-- **JDK 17 or 21**
-- **Android SDK** (Min SDK 24, Target/Compile SDK 36)
+### Requirements
 
-### Steps to Build
-1. Open this project directory in Android Studio.
-2. Select an Android device or emulator from the toolbar.
-3. Click **Run** (`Shift + F10`) or assemble the APK via terminal:
+- Android Studio Koala, Ladybug, or later
+- JDK 17 or 21
+- Android SDK 36
+- Android device or emulator running Android 7.0+ (API 24+)
+
+### Build
+
+Open the repository in Android Studio and let Gradle sync. Then run the `app` configuration, or use:
+
 ```bash
-gradle :app:assembleDebug
+./gradlew :app:assembleDebug
 ```
-The compiled APK will be located at `app/build/outputs/apk/debug/Aven-v0.1-prototype.apk`.
+
+On Windows:
+
+```powershell
+.\gradlew.bat :app:assembleDebug
+```
+
+The debug APK is generated under `app/build/outputs/apk/debug/`.
 
 ---
 
-## Architecture Overview
+## Architecture
 
-The codebase is organized into clean, focused packages:
+The project is split by responsibility rather than by screen:
 
-```
+```text
 com.aven.app/
-├── MainActivity.kt                       # Single activity entry point with edge-to-edge Compose
-├── androidintegration/
-│   ├── accessibility/
-│   │   └── AvenAccessibilityService.kt   # System-level launch interception & cooldown engine
-│   ├── appdetection/
-│   │   └── SimulatedAppLaunchDetector.kt # In-app and external launch event dispatcher
-│   ├── apps/
-│   │   └── InstalledAppsProvider.kt      # Device package scanner for launchable apps
-│   ├── notifications/
-│   │   └── AvenNotificationService.kt    # Calm milestone notification channels
-│   ├── permissions/
-│   │   └── SystemPermissionHelper.kt     # Permission checks & deep links to system settings
-│   └── widget/
-│       └── AvenGardenWidgetProvider.kt   # Home screen AppWidget provider & live broadcast updater
-├── core/
-│   ├── audio/
-│   │   └── CalmAudioSynthesizer.kt       # Low-latency procedural audio engine via AudioTrack
-│   ├── behavior/
-│   │   └── BehaviorEngine.kt             # Daily aggregation, weekly intentionality, and awareness metrics
-│   ├── garden/
-│   │   └── GardenEngine.kt               # Environmental rules, flora unlocks, and soft decay logic
-│   └── intent/
-│       └── IntentEngine.kt               # Conscious intent taxonomy and reflections
-├── data/
-│   ├── local/
-│   │   ├── AvenDatabase.kt               # Room database configuration
-│   │   ├── dao/                          # Type-safe Room DAOs
-│   │   └── entities/                     # Monitored apps, intent events, daily summaries, garden state
-│   ├── preferences/
-│   │   └── AvenPreferences.kt            # DataStore preference storage (durations, theme, reduced motion)
-│   └── repository/
-│       └── AvenRepository.kt             # Unified repository synchronizing DB, preferences, widgets, and notifications
-└── ui/
-    ├── AvenApp.kt                        # Scaffold, navigation backstack, and global launch observer
-    ├── components/                       # Shared UI: Wordmarks, badges, cards, metrics
-    ├── garden/                           # Living world Canvas, diurnal lighting, flora lore sheet
-    ├── home/                             # Daily pulse, quick launch pauses, intention status
-    ├── insights/                         # 7-day behavioral analytics, hourly impulse charts
-    ├── intervention/                     # The conscious pause: breathing timer, intention selector, decision screen
-    ├── navigation/                       # Type-safe navigation routes and icons
-    ├── onboarding/                       # 4-step calm onboarding journey
-    ├── settings/                         # App management, device app picker, sound preview, system status
-    └── theme/                            # Material Design 3 palette, typography, and shape system
+├── androidintegration/   # Android system integrations
+├── core/                 # Behavior, intent, garden, and audio logic
+├── data/                 # Room, DataStore, and repository layer
+└── ui/                   # Compose screens, components, navigation, and theme
 ```
 
----
+Important integrations include:
 
-## Testing Real-Device Integrations
-
-1. **Test the Intervention Flow**:
-   - In the Home screen, tap any monitored app (e.g. *Instagram*, *YouTube*, or any added app) to preview the breathing pause.
-   - Select an intention, take a mindful breath, and choose either to **Continue with Intent** or **Pause and Step Away**.
-   - Notice the harmonic audio chime and the immediate growth registered in your Living World.
-
-2. **Browse & Monitor Device Apps**:
-   - Navigate to **Settings** → **Monitored Apps** → tap **Browse device**.
-   - Search for any installed application on your phone and toggle monitoring with one tap.
-
-3. **Enable System Interception**:
-   - In **Settings** → **Native Android Awareness**, tap **Enable** next to **Accessibility Service**.
-   - Toggle on *Aven* in Android Accessibility Settings.
-   - Now, whenever you open a monitored app on your device, Aven will gently intercept the launch to offer a conscious pause.
-
-4. **Add the Home Screen Widget**:
-   - Long-press on your device home screen, select **Widgets**, find **Aven**, and drag the widget to your home screen.
-   - The widget automatically updates whenever you complete an intervention, reset data, or progress in growth.
+- `AvenAccessibilityService` — monitors relevant accessibility window events.
+- `InstalledAppsProvider` — discovers launchable apps on the device.
+- `AvenNotificationService` — handles local milestone notifications.
+- `AvenGardenWidgetProvider` — provides the home-screen widget.
+- `AvenRepository` — coordinates local persistence and app state.
 
 ---
 
-## License & Privacy
+## Real-device testing
 
-Aven is designed under a **Local-First, Privacy-Guaranteed** philosophy. No personal data, app usage logs, or behavioral decisions ever leave your device.
+1. Add an app under **Settings → Monitored Apps**.
+2. Preview the intervention from the Home screen.
+3. Enable Aven's Accessibility Service if you want automatic interception.
+4. Enable the overlay permission when prompted.
+5. Open a monitored app and verify that the pause appears.
+6. Add the Aven widget from your device's widget picker.
+
+Behavior can vary between Android versions and manufacturers, so real-device testing is preferred over relying only on an emulator.
+
+---
+
+## Current limitations
+
+Aven v0.1.0 is a prototype, not a production release.
+
+- The local database is not encrypted at the database layer.
+- Room migrations are not yet production-ready.
+- Accessibility behavior can differ across Android OEMs.
+- Some behavior and growth systems are still being refined.
+- Release hardening, automated builds, and broader device testing are planned for later versions.
+
+---
+
+## Roadmap
+
+The project is still early. Planned work includes improving reliability across Android devices, refining behavioral metrics, adding safer database migrations, expanding tests, and polishing the intervention experience based on real-world use.
+
+Bug reports and concrete reproduction steps are especially useful during the prototype stage.
+
+---
+
+## License
+
+Aven is released under the **MIT License**. See [`LICENSE`](LICENSE) for details.
