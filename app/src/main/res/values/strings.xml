@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aven</string>
+    <string name="accessibility_service_description">Enables Aven to detect when monitored impulse-prone applications open, pausing the impulse to introduce intentional awareness.</string>
+    <string name="notification_channel_milestones_name">Calm Milestones</string>
+    <string name="notification_channel_milestones_desc">Gentle, reflective notifications celebrating mindful moments and world growth.</string>
+    <string name="widget_title">Aven Living World</string>
+</resources>

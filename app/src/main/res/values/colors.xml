@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Aven Design System Tokens -->
+    <color name="aven_primary">#2D6A4F</color>
+    <color name="aven_primary_container">#D8E8DB</color>
+    <color name="aven_on_primary_container">#112117</color>
+    <color name="aven_icon_background">#1C2820</color>
+    <color name="aven_icon_foreground">#E8F0E9</color>
+    <color name="aven_icon_secondary">#7FA786</color>
+    <color name="aven_icon_muted">#4D6652</color>
+    <color name="aven_splash_background">#131A15</color>
+    <color name="aven_splash_background_light">#F5F7F5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

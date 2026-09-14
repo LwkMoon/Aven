@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Aven" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/aven_splash_background</item>
+        <item name="android:windowSplashScreenBackground">@color/aven_splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_aven_logo</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

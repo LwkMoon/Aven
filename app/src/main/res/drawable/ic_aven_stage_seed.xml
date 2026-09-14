@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Stage 1: Seed resting in fertile ground -->
+    <path
+        android:pathData="M12,48 Q32,44 52,48"
+        android:strokeColor="#8E8775"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M32,40 C32,40 37,45 37,48 C37,50.8 34.8,53 32,53 C29.2,53 27,50.8 27,48 C27,45 32,40 32,40 Z"
+        android:fillColor="#6A5F51" />
+    <path
+        android:pathData="M32,36 L32,40"
+        android:strokeColor="#7CA085"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+</vector>

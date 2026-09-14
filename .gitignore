@@ -1,0 +1,32 @@
+# Built artifacts and caches
+.gradle/
+build/
+app/build/
+captures/
+*.apk
+*.aar
+*.jks
+
+# IDE configuration and workspace folders
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+local.properties
+
+# Secrets and environment configurations
+.env
+.env.properties
+
+# Operating System specific tracking
+Downloads/
+Thumbs.db
+db.db
+Desktop.ini
+.DS_Store
+
+# Android Studio logs
+*.log

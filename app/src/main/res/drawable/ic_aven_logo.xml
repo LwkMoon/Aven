@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Outer calm containment arc (The Pause) -->
+    <path
+        android:pathData="M12,33 C12,18 19,13 24,13 C29,13 36,18 36,33"
+        android:strokeColor="@color/aven_icon_foreground"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Base horizon bar -->
+    <path
+        android:pathData="M10,38 L38,38"
+        android:strokeColor="@color/aven_icon_muted"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Ascending Seed / Bud Core (Intent & Growth) -->
+    <path
+        android:pathData="M24,20 C24,20 29.5,28 29.5,32 C29.5,35 27,36 24,36 C21,36 18.5,35 18.5,32 C18.5,28 24,20 24,20 Z"
+        android:fillColor="@color/aven_icon_secondary" />
+</vector>

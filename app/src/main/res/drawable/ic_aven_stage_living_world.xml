@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Stage 5: Living World - flourishing expansive ecosystem -->
+    <!-- Distant mountain layers -->
+    <path
+        android:pathData="M4,54 L20,26 L36,44 L48,22 L60,54 Z"
+        android:fillColor="#1F527D5E" />
+    <!-- Rolling terrain -->
+    <path
+        android:pathData="M4,54 Q32,48 60,54"
+        android:strokeColor="#6A5F51"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Central Ancient Tree -->
+    <path
+        android:pathData="M32,52 L32,22"
+        android:strokeColor="#524639"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M32,8 C18,8 12,18 16,28 C20,33 44,33 48,28 C52,18 46,8 32,8 Z"
+        android:fillColor="#2D4A35" />
+    <!-- Secondary canopy highlights -->
+    <path
+        android:pathData="M24,20 C18,20 16,25 18,29 C21,31 29,31 31,29 C33,25 30,20 24,20 Z"
+        android:fillColor="#4D7257" />
+    <path
+        android:pathData="M38,18 C34,18 32,22 34,26 C36,28 44,28 45,26 C47,22 43,18 38,18 Z"
+        android:fillColor="#7CA085" />
+    <!-- Distant birds in sky -->
+    <path
+        android:pathData="M16,16 Q18,14 20,16 Q22,14 24,16"
+        android:strokeColor="#8E8775"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+</vector>

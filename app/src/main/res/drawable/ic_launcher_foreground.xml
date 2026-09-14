@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Centered Aven abstract mark: serene containment arc (the pause) + organic rising seed (growth) -->
+    <!-- Arc / Portal (The Pause & Containment) -->
+    <path
+        android:pathData="M37,64 C37,44 44.5,33 54,33 C63.5,33 71,44 71,64"
+        android:strokeColor="@color/aven_icon_foreground"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Base horizon bar -->
+    <path
+        android:pathData="M34,70 L74,70"
+        android:strokeColor="@color/aven_icon_muted"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Organic Seed / Bud Core (Intent & Emerging Life) -->
+    <path
+        android:pathData="M54,42 C54,42 62,54 62,60 C62,64.4 58.4,66 54,66 C49.6,66 46,64.4 46,60 C46,54 54,42 54,42 Z"
+        android:fillColor="@color/aven_icon_secondary" />
+</vector>

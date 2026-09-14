@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Stage 4: Habitat with forest canopy, winding stream, stone cairn -->
+    <path
+        android:pathData="M6,54 Q32,50 58,54"
+        android:strokeColor="#8E8775"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Distant mountain silhouette -->
+    <path
+        android:pathData="M10,50 L22,34 L32,46 L44,28 L56,50 Z"
+        android:fillColor="#15527D5E" />
+    <!-- Winding stream -->
+    <path
+        android:pathData="M26,54 C28,50 36,46 34,40 C32,36 36,32 35,28"
+        android:strokeColor="#74A1B8"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Trees on left -->
+    <path
+        android:pathData="M18,52 L18,32"
+        android:strokeColor="#6A5F51"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M18,18 C11,18 9,25 12,32 C15,35 21,35 24,32 C27,25 25,18 18,18 Z"
+        android:fillColor="#3B5E44" />
+    <!-- Stone Cairn on right -->
+    <path
+        android:pathData="M48,52 L54,52 L52,48 L50,48 Z"
+        android:fillColor="#8E8775" />
+    <path
+        android:pathData="M49,47 L53,47 L52,44 L50,44 Z"
+        android:fillColor="#A8A291" />
+</vector>

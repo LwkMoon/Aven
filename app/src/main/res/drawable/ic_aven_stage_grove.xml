@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Stage 3: Grove with young trees -->
+    <path
+        android:pathData="M8,52 Q32,48 56,52"
+        android:strokeColor="#8E8775"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Main Tree Trunk -->
+    <path
+        android:pathData="M32,52 L32,28"
+        android:strokeColor="#6A5F51"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Main Canopy -->
+    <path
+        android:pathData="M32,10 C22,10 16,18 20,28 C23,32 41,32 44,28 C48,18 42,10 32,10 Z"
+        android:fillColor="#3B5E44" />
+    <!-- Secondary Tree Left -->
+    <path
+        android:pathData="M18,52 L18,36"
+        android:strokeColor="#6A5F51"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M18,22 C11,22 8,28 11,35 C13,38 23,38 25,35 C28,28 25,22 18,22 Z"
+        android:fillColor="#527D5E" />
+    <!-- Secondary Tree Right -->
+    <path
+        android:pathData="M46,52 L46,38"
+        android:strokeColor="#6A5F51"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M46,26 C41,26 38,31 41,37 C42,39 50,39 52,37 C54,31 51,26 46,26 Z"
+        android:fillColor="#7CA085" />
+</vector>

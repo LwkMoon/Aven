@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Stage 2: Sprout with tender leaves -->
+    <path
+        android:pathData="M10,50 Q32,46 54,50"
+        android:strokeColor="#8E8775"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Stem -->
+    <path
+        android:pathData="M32,50 Q31,34 32,24"
+        android:strokeColor="#4D7257"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <!-- Left Leaf -->
+    <path
+        android:pathData="M32,32 C26,30 20,33 22,39 C25,41 30,36 32,34"
+        android:fillColor="#7CA085" />
+    <!-- Right Leaf -->
+    <path
+        android:pathData="M32,28 C38,26 44,28 43,35 C40,37 34,32 32,30"
+        android:fillColor="#527D5E" />
+</vector>
