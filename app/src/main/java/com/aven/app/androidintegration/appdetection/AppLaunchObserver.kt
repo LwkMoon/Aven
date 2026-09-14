@@ -4,48 +4,33 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
-/**
- * AppLaunchRequest encapsulates an intercepted or simulated app launch.
- */
+/** Represents an app launch detected by Aven. */
 data class AppLaunchRequest(
     val packageName: String,
     val appDisplayName: String,
     val timestamp: Long = System.currentTimeMillis()
 )
 
-/**
- * AppLaunchObserver interface:
- *
- * Seam for future native Android implementation (AccessibilityService or UsageStatsManager).
- * The UI layer only observes this interface, ensuring zero coupling with platform-specific code.
- */
+/** Publishes app launches without coupling the UI to Android platform APIs. */
 interface AppLaunchObserver {
     val launchRequests: Flow<AppLaunchRequest>
-
-    /**
-     * Manually simulates an app launch (used in this prototype environment).
-     */
-    suspend fun triggerLaunch(packageName: String, appDisplayName: String)
+    suspend fun publishLaunch(packageName: String, appDisplayName: String)
 }
 
-/**
- * Prototype implementation of AppLaunchObserver.
- */
-class SimulatedAppLaunchDetector : AppLaunchObserver {
+class AppLaunchEventBus : AppLaunchObserver {
     private val _launchRequests = MutableSharedFlow<AppLaunchRequest>(extraBufferCapacity = 16)
     override val launchRequests: Flow<AppLaunchRequest> = _launchRequests.asSharedFlow()
 
-    override suspend fun triggerLaunch(packageName: String, appDisplayName: String) {
+    override suspend fun publishLaunch(packageName: String, appDisplayName: String) {
         _launchRequests.emit(
             AppLaunchRequest(
                 packageName = packageName,
-                appDisplayName = appDisplayName,
-                timestamp = System.currentTimeMillis()
+                appDisplayName = appDisplayName
             )
         )
     }
 
     companion object {
-        val instance = SimulatedAppLaunchDetector()
+        val instance = AppLaunchEventBus()
     }
 }
